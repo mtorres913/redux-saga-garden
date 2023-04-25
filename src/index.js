@@ -26,7 +26,10 @@ function* fetchPlants() {
   try{
     const plants = yield axios.get('/api/element');
     yield put({ type: 'SET_PLANTS', payload: plants.data})
-  } catch
+  } catch (error){
+    console.log(`Error in fetchElements ${error}`);
+    alert('Something went wrong.')
+  }
 }
 
 function* rootSaga() {
